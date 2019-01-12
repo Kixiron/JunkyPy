@@ -20,7 +20,7 @@ class Junky():
             if line == "/* SKIP FILE */":
                 skip_file = True
                 break
-            elif line == "/* This file has been junkified by JunkyPy */":
+            elif line == "/* This file has been junkified by JunkyPy https://github.com/Kixiron/JunkyPy */":
                 junk_token = True
             elif line == "/* INSERT JUNK FUNCTION */":
                 new_file.append(self.generate_function())
@@ -52,7 +52,7 @@ class Junky():
             pass
         else:
             if junk_token == False:
-                new_file.insert(0, "/* This file has been junkified by JunkyPy */")
+                new_file.insert(0, "/* This file has been junkified by JunkyPy https://github.com/Kixiron/JunkyPy */")
                 return_msg = "Junked File {}".format(self.filename)
             else:
                 return_msg = "Un-junked File {}".format(self.filename)
@@ -74,7 +74,7 @@ class Junky():
         new_file = []
         for line in file_raw:
             line = line.strip()
-            if line == "/* This file has been junkified by JunkyPy */":
+            if line == "/* This file has been junkified by JunkyPy https://github.com/Kixiron/JunkyPy */":
                 junk_token = True
             elif line == "/* INSERT JUNK FUNCTION */":
                 new_file.append(self.generate_function())
@@ -88,7 +88,7 @@ class Junky():
                 new_file.append(line)
         else:
             if junk_token == False:
-                new_file.insert(0, "/* This file has been junkified by JunkyPy */")
+                new_file.insert(0, "/* This file has been junkified by JunkyPy https://github.com/Kixiron/JunkyPy */")
             file = open(self.file, "w")
             file.close()
             file = open(self.file, "w")
