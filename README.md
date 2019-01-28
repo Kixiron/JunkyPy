@@ -78,7 +78,7 @@ public class ExampleNamespace
 }
 ```
 
-To this:
+To this (Note that the output will be completely random on each run of JunkyPy)
 
 ```cs
 /* This file has been junkified by JunkyPy */
