@@ -110,7 +110,7 @@ class Junky():
         return junk
 
     def generate_class_function(self):
-        junk = "private async void {}_func()\n".format(self.generate_var())
+        junk = "void {}_func()\n".format(self.generate_var())
         junk += "{{\n"
         for i in range(random.randint(1, 3)):
             junk += self.generate_if()
@@ -121,7 +121,7 @@ class Junky():
 
     def generate_function(self):
         junk = "/* START JUNK */\n"
-        junk += "private async void {}_func()\n".format(self.generate_var())
+        junk += "void {}_func()\n".format(self.generate_var())
         junk += "{{\n"
         for i in range(random.randint(1, 3)):
             junk += self.generate_if()
@@ -246,7 +246,7 @@ class Junky():
         junk = "/* START JUNK */\n"
         for i in range(random.randint(1, 7)):
             junk += self.generate_global_var()
-        junk += "/* END JUNK PRIVATE VARS */\n"
+        junk += "/* END JUNK PRIVATE VARS */"
         return junk
 
     def generate_global_var(self):
@@ -313,13 +313,13 @@ def main():
             if file.endswith(".csproj"):
                 pass
             file_list.append(file)
-            if len(file_list) == 1:
-                print("{} file found".format(len(file_list)))
-            elif len(file_list) < 0:
-                print("No files found, quitting")
-                exit()
-            else:
-                print("{} files found".format(len(file_list)))
+    if len(file_list) == 1:
+        print("{} file found".format(len(file_list)))
+    elif len(file_list) < 0:
+        print("No files found, quitting")
+        exit()
+    else:
+        print("{} files found".format(len(file_list)))
     for file in file_list:
         junker = Junky(path, file, rejunk)
         status = junker.junkify()
